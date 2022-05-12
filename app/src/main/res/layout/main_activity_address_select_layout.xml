@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.baidu.mapapi.map.MapView
+        android:layout_below="@id/ll_top"
+        android:layout_above="@id/ll_bottom"
+        android:id="@+id/bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/bmapView"
+        android:layout_alignTop="@id/bmapView"
+        android:layout_gravity="center"
+        android:id="@+id/center_image"
+        android:layout_width="40dp"
+        android:layout_marginBottom="15dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/icon_positioning" />
+
+
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/ll_bottom"
+        android:background="@drawable/shape_cricel_white"
+        android:src="@mipmap/location_gps_black"
+        android:id="@+id/location_iv"
+        android:layout_gravity="center|end"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/ll_top"
+        android:background="@color/white"
+        android:paddingTop="35dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:text="取消"
+            android:id="@+id/cancle_tv"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="30dp"/>
+        <TextView
+            android:id="@+id/confirm_tv"
+            android:layout_alignParentEnd="true"
+            android:background="@color/green_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="60dp"
+            android:layout_height="30dp"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <LinearLayout
+            android:id="@+id/search_nonmal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contact_bg_grey_with_corner"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="13dp"
+                    android:src="@mipmap/icon_search"/>
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/search_address_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 搜索 -->
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/search_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contact_bg_grey_with_corner"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="13dp"
+                    android:src="@mipmap/icon_search"/>
+
+                <EditText
+                    android:id="@+id/search_address_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="17dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:maxLength="32"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/clear_input_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="13dp"
+                    android:src="@mipmap/icon_clear_enter_1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/search_devices_layout"
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp" />
+
+
+        <LinearLayout
+            android:layout_below="@+id/search_devices_layout"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/search_no_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/search_no_data_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
